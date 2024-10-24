@@ -11,7 +11,7 @@ async function sendEmails() {
     try {
         console.log('Starting email sending process...');
 
-        const batchSize = 1; // Change back to 500 for real use
+        const batchSize = 200; // Change back to 500 for real use
         const sentEmailsCount = await EmailRecord.countDocuments({ sent: true });
         console.log(`Sent emails count: ${sentEmailsCount}`);
 
@@ -79,7 +79,10 @@ Khush Desai\n
 
 // Schedule the job to run once every 24 hours
 // Uncomment the following line to enable scheduling
-schedule.scheduleJob('0 8 * * *', () => {
+const now = new Date();
+const runTime = new Date(now.getTime() + 2 * 60000);
+
+schedule.scheduleJob(runTime, () => {
     console.log('Starting email batch at 8 AM...');
     sendEmails();
 });
