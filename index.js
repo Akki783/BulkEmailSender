@@ -10,7 +10,7 @@ async function sendEmails() {
     try {
         console.log('Starting email sending process...');
 
-        const batchSize = 10;
+        const batchSize = 490;
         const sentEmailsCount = await EmailRecord.countDocuments({ sent: true });
         console.log(`Sent emails count: ${sentEmailsCount}`);
 
