@@ -32,7 +32,7 @@ async function sendEmails() {
                 from: 'khushdesai1030@gmail.com',
                 to: 'lesbmao@gmail.com', // You may want to change this to record.Email
                 subject: 'Testing',
-                text: `
+                text: `Testing Bulk Email
 `,
                 attachments: [
                     {
