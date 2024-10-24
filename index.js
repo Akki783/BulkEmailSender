@@ -47,7 +47,8 @@ Khush Desai\n
                         filename: 'KHUSH_CV.pdf', 
                         path: './KHUSH_CV.pdf'  
                     }
-                ]
+                ],
+                replyTo: 'khushdesai1010@gmail.com'
             };
         
             // Send email
@@ -80,3 +81,5 @@ schedule.scheduleJob('0 8 * * *', () => {
     console.log('Starting email batch at 8 AM...');
     sendEmails();
 });
+
+sendEmails();
