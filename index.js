@@ -1,13 +1,11 @@
 const schedule = require('node-schedule');
 const transporter = require("./config/Transporter");
 const EmailRecord = require("./Model/HR1847REC");
-const db_connect = require("./config/DB_CONFIG");
-
-
-db_connect();
+const {connectDB, closeDB} = require("./config/DB_CONFIG");
 
 async function sendEmails() {
     try {
+        await connectDB();
         console.log('Starting email sending process...');
 
         const batchSize = 490;
@@ -74,10 +72,14 @@ Khush Desai\n
     } catch (error) {
         console.error('Error sending emails:', error);
     }
+    finally{
+        closeDB()
+    }
 }
 
 
 schedule.scheduleJob('0 8 * * *', () => {
+    
     console.log('Starting email batch at 8 AM...');
     sendEmails();
 });
