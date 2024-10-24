@@ -81,5 +81,3 @@ schedule.scheduleJob('0 8 * * *', () => {
     console.log('Starting email batch at 8 AM...');
     sendEmails();
 });
-
-sendEmails();
