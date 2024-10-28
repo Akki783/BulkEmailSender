@@ -28,9 +28,9 @@ async function sendEmails() {
         for (const record of records) {
             console.log("Email Id:", record.Email);
             const mailOptions = {
-                from: 'khushdesai1030@gmail.com',
-                to: record.Email, // You may want to change this to record.Email
-                subject: 'Inquiry for Full Stack Developer Opportunities',
+                from: 'khushdesai1030@gmail.com', // Change Email
+                to: record.Email,
+                subject: 'Inquiry for Full Stack Developer Opportunities', // Change Suubject Line
                 text: `
 Dear ${record.Name},\n
 I hope this message finds you well. My name is Khush Desai, and I am writing to inquire about full stack developer opportunities at ${record.Company}. I have developed skills in both front-end and back-end technologies, and I am eager to contribute to your team.\n
@@ -77,9 +77,11 @@ Khush Desai\n
     }
 }
 
-
+/*
 schedule.scheduleJob('0 8 * * *', () => {
     
     console.log('Starting email batch at 8 AM...');
     sendEmails();
 });
+*/
+sendEmails();
